@@ -27,14 +27,51 @@
             return humanChoice.toUpperCase();
 
         }
-        function playRound(humanChoice,computerChoice){
+       
+        
+        function playGame(){
             
+            
+            
+            function playRound(humanChoice,computerChoice){
+            if (humanChoice === "ROCK" && computerChoice === "PAPER" 
+             || humanChoice === "SCISSORS" && computerChoice === "ROCK"
+             || humanChoice === "PAPER" && computerChoice === "SCISSORS"  
+             ){
+                computerScore++;   
+                return `you lose ${computerChoice} beats ${humanChoice}`;
+            }
+            else if (humanChoice === "ROCK" && computerChoice === "SCISSORS"
+                  || humanChoice === "PAPER" && computerChoice === "ROCK"
+                  || humanChoice === "SCISSORS" && computerChoice === "PAPER"
+            ){  humanScore++;
+                return `you win ${humanChoice} beats ${computerChoice}`;
+            }
+            else {
+                return `its a tie ${humanChoice} = ${computerChoice}`
+            }
+            }
+            
+        for(let i = 0; i < 5; i++ ){
+            const humanSelection = getHumanChoice();
+            const computerSelection = getComputerChoice();
+            console.log(playRound(humanSelection,computerSelection));
 
+            
         }
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
+        if (computerScore > humanScore){
+            console.log(`you lose the game ${computerScore} > ${humanScore}`)
+        }
+        else if (computerScore < humanScore){
+            console.log(`you win the game ${computerScore} < ${humanScore}`)
+        }    
+        
+        
+        }
+        playGame()
 
-        playRound(humanSelection,computerSelection);
+      
+        
     </script>
 </head>
 <body>
