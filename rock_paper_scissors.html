@@ -4,77 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script>
-        let humanScore = 0;
-        let computerScore = 0;
-        function getComputerChoice(){
-            let randomNumber = Math.floor(Math.random()*30);
-            if (randomNumber < 10  ){
-                return "ROCK";
-            }
-            else if (randomNumber < 20 ){
-                return "PAPER";
-            }
-            else {
-                return "SCISSORS";
-            }    
-         
-             
-        }
-        
-        function getHumanChoice(){
-            let humanChoice = prompt("make your choice","");
-            return humanChoice.toUpperCase();
-
-        }
-       
-        
-        function playGame(){
-            
-            
-            
-            function playRound(humanChoice,computerChoice){
-            if (humanChoice === "ROCK" && computerChoice === "PAPER" 
-             || humanChoice === "SCISSORS" && computerChoice === "ROCK"
-             || humanChoice === "PAPER" && computerChoice === "SCISSORS"  
-             ){
-                computerScore++;   
-                return `you lose ${computerChoice} beats ${humanChoice}`;
-            }
-            else if (humanChoice === "ROCK" && computerChoice === "SCISSORS"
-                  || humanChoice === "PAPER" && computerChoice === "ROCK"
-                  || humanChoice === "SCISSORS" && computerChoice === "PAPER"
-            ){  humanScore++;
-                return `you win ${humanChoice} beats ${computerChoice}`;
-            }
-            else {
-                return `its a tie ${humanChoice} = ${computerChoice}`
-            }
-            }
-            
-        for(let i = 0; i < 5; i++ ){
-            const humanSelection = getHumanChoice();
-            const computerSelection = getComputerChoice();
-            console.log(playRound(humanSelection,computerSelection));
-
-            
-        }
-        if (computerScore > humanScore){
-            console.log(`you lose the game ${computerScore} > ${humanScore}`)
-        }
-        else if (computerScore < humanScore){
-            console.log(`you win the game ${computerScore} < ${humanScore}`)
-        }    
-        
-        
-        }
-        playGame()
-
-      
-        
-    </script>
+   
 </head>
 <body>
-    
+    <button id="Rock">Rock</button>
+    <button id="Paper">Paper</button>
+    <button id="Scissors">Scissors</button>
+    <script src="rock_paper_scissors.js"></script>
 </body>
 </html>
